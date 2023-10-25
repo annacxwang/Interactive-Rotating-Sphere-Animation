@@ -1,45 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////
-//
-//  --- mat-yjc-new.h (Modified by Yi-Jen Chiang) ---
-//
-// YJC Comments:
-//  1. The matrices are all in *row order* (as opposed to *column order* in OpenGL).
-//
-//  2. Function for general rotation, mat4 Rotate(angle, x, y, z) is added, where
-//     angle is in degrees, and vector (x, y, z) can have length != 1.0.
-//
-//  3. For mat2, mat3 and mat4, the transpose() functions are all *incorrect*.
-//     The correct new functions "transpose1()" are added for each type.
-//     ==> Use "transpose1()" instead.
-//
-//  3'. Originally the function LookAt() was *incorrect*. It has now been fixed.
-//      The correct function is still called "LookAt()". (Search for it to see it.)
-//
-//  4. For matrix A, ust A[i][j] to get the item at i-th row and j-th column
-//     (i, j both start from 0).
-//   
-//  5. mat4 can be specified as
-//     i. mat4(a, b, c, d): a becomes the first row, b the 2nd row, etc., where
-//                          a, b, c, d are each a vec4.
-//    ii. mat4(m00, m10, m20, m30,..., m33): the 16 floats m00, ..., m33 are given
-//        in *column order* but the matrix is stored in *row order*.
-// (Note: Search for the part of mat4 and look at the comments marked with "YJC:".)
-//
-//  6. Function for obtaining the Normal Matrix,
-//     mat3 NormalMatrix(mv, non_uniform_scale_flag) is added, where
-//     mv is the Model-View matrix (mat4) and 
-//     non_uniform_scale_flag == 1 if mv involves non-uniform scaling, and
-//     non_uniform_scale_flag == 0 otherwise.
-//                  
-//     The following related functions are also added:
-//
-//     mat3 upperLeftMat3(m): return the upper-left 3x3 submatrix of mat4 m.
-//     mat3 inverse(m): return the inverse of 3x3 matrix m.
-//     mat4 mat4WithUpperLeftMat3(m): return the mat4 where the
-//          upper-left 3x3 submatrix is m, the 4th column and the 4th row are
-//          both (0, 0, 0, 1).
-//                  
-//////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef __ANGEL_MAT_H__
 #define __ANGEL_MAT_H__
